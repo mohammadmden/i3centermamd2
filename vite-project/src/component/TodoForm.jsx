@@ -1,7 +1,8 @@
+import TodoItem from "./TodoItem";
 const TodoForm = () => {
     const todo = [
         { name: "task1", priority: "1" },
-        { name: "task2", priority: "2" },
+        // { name: "task2", priority: "2" },
     ];
     return (
         <div
@@ -10,23 +11,25 @@ const TodoForm = () => {
                 flexDirection: "column",
                 justifyContent: "center",
                 alignItems: "center",
-                width: "100%",
-                height: "100%",
+                width: "99vw",
+                height: "70vh",
                 border: "6px duble black",
                 borderRadius: "35px",
                 minHeight: 300,
                 textAlign: "center",
-                background: "gray",
-                fontSize: "1.5rem",
-                color: "black",
+                backgroundImage: "url('vecteezy_desktop-source-code-and-wallpaper-by-coding-and-programming_3343387.jpg')",
+                backgroundSize:"cover",
+                fontSize: "2rem",
+                color: "white",
 
             }}
         >
 
-            <h4>My todo</h4>
+            <h4 >My Todo Form</h4>
             <form action=""
                 style={
                     {
+                        
                         // display:"flex",
                         // flexdirection: "column",
                     }
@@ -34,10 +37,28 @@ const TodoForm = () => {
 
             >
 
-                <input type="text" name="fname" placeholder="task"
+                <input type="text" name="fname" placeholder="task" id="removeelement"
                     style={
                         {
                             display: "block",
+                            width: "30rem",
+                            height: "1.3rem",
+                            
+                            
+                            // display:
+                            // flexdirection: "column",
+
+                        }
+                    }
+
+                />
+                 <input type="text" name="fname" placeholder="task" id="colorstyle"
+                    style={
+                        {
+                            display: "block",
+                            width: "30rem",
+                            height: "1.3rem",
+                            marginTop:"1.4rem",
                             // display:
                             // flexdirection: "column",
 
@@ -46,22 +67,10 @@ const TodoForm = () => {
 
                 />
             </form>
-            {todo.map((element) => (
-                <div
-                    style={
-                        {
-                            border:"2px solid black ",
-                            padding:"0px 20px",
-                            margin:"5px 5px"
-                            
-                        }
-                    }
-                >
-                    {element.name} {element.priority}
-                </div>
-
-            ))};
-
+            
+{todo.map((element, index) => (
+        <TodoItem piorit={element.priority} name={element.name} key={index} />
+      ))}
 
 
 
